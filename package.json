@@ -1,0 +1,16 @@
+{
+  "name": "wences",
+  "version": "1.0.0",
+  "description": "Lightweight component library made for small project",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "components",
+    "javascript",
+    "js"
+  ],
+  "author": "Chessurisme",
+  "license": "MIT"
+}
