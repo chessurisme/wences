@@ -9,7 +9,25 @@ const containerFactory = (tagName, attributes, props, events) => {
 	}
 
 	if (props) {
-		element.textContent = props.text;
+		if (props.text) {
+			element.textContent = props.text;
+		}
+
+		if (props.value) {
+			element.value = props.value;
+		}
+
+		if (props.hidden === true) {
+			element.hidden = true;
+		} else {
+			element.hidden = false;
+		}
+
+		if (props.readOnly === true) {
+			element.readOnly = true;
+		} else {
+			element.readOnly = false;
+		}
 	}
 
 	if (events) {
