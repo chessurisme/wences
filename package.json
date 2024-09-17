@@ -4,7 +4,8 @@
   "description": "Lightweight component library made for small project",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "rollup --config"
   },
   "keywords": [
     "components",
@@ -12,5 +13,17 @@
     "js"
   ],
   "author": "Chessurisme",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "eslint": "^9.10.0",
+    "globals": "^15.9.0",
+    "prettier": "3.3.3",
+    "rollup": "^4.21.3"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "lucide": "^0.441.0"
+  }
 }
