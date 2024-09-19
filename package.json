@@ -1,7 +1,7 @@
 {
 	"name": "wences",
 	"version": "1.0.0",
-	"description": "Lightweight component library made for small project",
+	"description": "Lightweight component library made on Vanilla JS",
 	"main": "index.js",
 	"scripts": {
 		"test": "jest",
