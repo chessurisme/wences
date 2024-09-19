@@ -1,0 +1,63 @@
+.wences-button-text-and-icon,
+.wences-button-text-only,
+.wences-button-icon-only {
+	cursor: pointer;
+	border: none;
+
+	display: grid;
+	align-items: center;
+	box-sizing: border-box;
+
+	padding: 12px;
+	border-radius: 10px;
+
+	i,
+	span,
+	svg {
+		padding: 0;
+		max-height: 24px;
+	}
+
+	p {
+		padding: 0;
+		font-family: Inter, sans-serif;
+		margin-block: 0;
+		font-size: 12pt;
+		font-weight: 400;
+		text-wrap: nowrap;
+		max-height: 24px;
+	}
+}
+
+.wences-button-text-and-icon {
+	min-width: 105px;
+
+	grid-template-columns: 24px auto;
+	grid-column-gap: 12px;
+
+	i,
+	span,
+	svg {
+		grid-area: 1 / 1 / 2 / 2;
+	}
+
+	p {
+		grid-area: 1 / 2 / 2 / 3;
+	}
+}
+
+.wences-button-text-only {
+	min-width: 70px;
+}
+
+.wences-button-text-and-icon:hover,
+.wences-button-text-only:hover,
+.wences-button-icon-only:hover {
+	filter: brightness(0.9);
+}
+
+.wences-button-text-and-icon:active,
+.wences-button-text-only:active,
+.wences-button-icon-only:active {
+	filter: brightness(1);
+}

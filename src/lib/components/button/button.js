@@ -1,21 +1,54 @@
-import { roundedSquareButton } from './button-rounded-square';
-import { slabButton } from './button-slab';
+import './button.css';
+import { BaseComponent } from '../base-component/base-component';
 
-const button = (config) => {
-	const { type, id, className, text, iconName, events } = config;
+const Button = (config) => {
+	if (!verifyButtonConfig(config)) return;
 
-	if (type === 'slab') {
-		const attributes = { id, className, iconName };
-		const props = { text };
-		return slabButton(attributes, props, events);
-	}
+	const button = formatConfig(config);
 
-	if (type === 'rounded-square') {
-		const attributes = { id, className, iconName };
-		return roundedSquareButton(attributes, events);
-	}
-
-	return console.error('400: No `type` included in config for button.');
+	return button;
 };
 
-export { button };
+function verifyButtonConfig(config) {
+	const { content } = config;
+
+	if (content.elements) {
+		console.error('Buttons cannot have elements.');
+		return false;
+	}
+
+	if (!content.text && !content.icon) {
+		console.error(
+			'Buttons cannot be empty. It must have text or icon or both.'
+		);
+		return false;
+	}
+
+	return true;
+}
+
+function formatConfig(config) {
+	const { attribute, content } = config;
+
+	const className = getClass(content);
+	attribute.class = `${className} ${attribute.class || ''}`.trim();
+	const button = BaseComponent(config, 'button');
+
+	return button;
+}
+
+function getClass(content) {
+	if (content.text && content.icon) {
+		return 'wences-button-text-and-icon';
+	}
+
+	if (content.text && !content.icon) {
+		return 'wences-button-text-only';
+	}
+
+	if (!content.text && content.icon) {
+		return 'wences-button-icon-only';
+	}
+}
+
+export { Button };
