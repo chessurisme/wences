@@ -15,7 +15,6 @@ const button = Button({
 		text: 'Pineapple'
 	},
 	style: {
-		border: '2px solid black',
 		background: 'orange'
 	}
 });
@@ -30,8 +29,7 @@ document.body.appendChild(
 			onclick: () => console.log('Hi, I am an apple!')
 		},
 		style: {
-			backgroundColor: 'tomato',
-			border: 'black 2px solid'
+			backgroundColor: '#eaeaea'
 		},
 		state: {
 			disabled: false
@@ -57,8 +55,7 @@ document.body.appendChild(
 			text: 'Grape'
 		},
 		style: {
-			border: '2px solid black',
-			background: 'pink'
+			background: '#eaeaea'
 		}
 	})
 );
@@ -73,11 +70,10 @@ document.body.appendChild(
 			click: () => console.log('Hi, I am a pineapple!')
 		},
 		content: {
-			text: 'Pineapple'
+			text: 'Play Pineapple'
 		},
 		style: {
-			border: '2px solid black',
-			background: 'orange'
+			background: '#eaeaea'
 		}
 	})
 );
