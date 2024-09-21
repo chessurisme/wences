@@ -15,7 +15,7 @@
 	span,
 	svg {
 		padding: 0;
-		max-height: 24px;
+		height: 24px;
 	}
 
 	p {
@@ -25,13 +25,11 @@
 		font-size: 12pt;
 		font-weight: 400;
 		text-wrap: nowrap;
-		max-height: 24px;
+		height: 24px;
 	}
 }
 
 .wences-button-text-and-icon {
-	min-width: 105px;
-
 	grid-template-columns: 24px auto;
 	grid-column-gap: 12px;
 
@@ -44,10 +42,6 @@
 	p {
 		grid-area: 1 / 2 / 2 / 3;
 	}
-}
-
-.wences-button-text-only {
-	min-width: 70px;
 }
 
 .wences-button-text-and-icon:hover,
