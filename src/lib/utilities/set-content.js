@@ -50,7 +50,7 @@ function validateParameters(element, content) {
 		return false;
 	}
 
-	const validKeys = ['icon', 'text', 'elements', 'type', 'index'];
+	const validKeys = ['icon', 'text', 'elements', 'type', 'index', 'src', 'alt'];
 	const invalidKeys = Object.keys(content).filter(
 		(key) => !validKeys.includes(key)
 	);
