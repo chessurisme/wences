@@ -5,6 +5,7 @@
 	border: none;
 
 	display: grid;
+	justify-content: center;
 	align-items: center;
 	box-sizing: border-box;
 
@@ -26,6 +27,9 @@
 		font-weight: 400;
 		text-wrap: nowrap;
 		height: 24px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
 
