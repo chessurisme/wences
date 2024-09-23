@@ -50,15 +50,13 @@ function validateParameters(element, content) {
 		return false;
 	}
 
-	const validKeys = ['icon', 'text', 'elements'];
+	const validKeys = ['icon', 'text', 'elements', 'type', 'index'];
 	const invalidKeys = Object.keys(content).filter(
 		(key) => !validKeys.includes(key)
 	);
 
 	if (invalidKeys.length > 0) {
-		console.error(
-			`Invalid content keys: ${invalidKeys.join(', ')}. Expected "icon", "text", or "elements".`
-		);
+		console.error(`Invalid content keys: ${invalidKeys.join(', ')}.".`);
 		return false;
 	}
 
