@@ -1,20 +1,31 @@
-import { containerFactory } from '../../utilities/container-factory';
+import './tab.css';
+import { BaseComponent } from '../base-component/base-component';
+import { verifyConfig } from './utilities/verify-config';
+import { addIndex } from './utilities/add-index';
+import { manageIndex } from './utilities/manage-index';
 
-const tab = (config) => {
-	const { id, className, elements } = config;
+const Tab = (config) => {
+	if (!verifyConfig(config)) return;
 
-	const tabAttributes = {
-		id: id,
-		class: `tab ${className}`
-	};
+	const { attribute, content } = config;
 
-	const tab = containerFactory('div', tabAttributes);
+	if (!content.type) {
+		content.type = 'float';
+	}
 
-	elements.forEach((element) => {
-		tab.appendChild(element);
-	});
+	if (content.type === 'float') {
+		attribute.class = `wences-tab-float ${attribute.class || ''}`.trim();
+	}
+
+	if (content.type === 'footer') {
+		attribute.class = `wences-tab-footer ${attribute.class || ''}`.trim();
+	}
+
+	const unindexedTab = BaseComponent(config, 'div');
+	const tab = addIndex(unindexedTab, content);
+	manageIndex(tab);
 
 	return tab;
 };
 
-export { tab };
+export { Tab };
