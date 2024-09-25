@@ -14,12 +14,20 @@ describe('applyBehavior', () => {
 	describe('Happy Cases', () => {
 		it('should add event listeners for valid behavior functions', () => {
 			const mockClickHandler = jest.fn();
-			const behavior = { onclick: mockClickHandler };
+			const behavior = { click: mockClickHandler };
 
 			applyBehavior(element, behavior);
 			element.click(); // Simulate a click
 
 			expect(mockClickHandler).toHaveBeenCalled();
+			expect(logError).not.toHaveBeenCalled();
+		});
+
+		it('should add event listeners when key is prefixed', () => {
+			const behavior = { onclick: jest.fn() };
+
+			applyBehavior(element, behavior);
+
 			expect(logError).not.toHaveBeenCalled();
 		});
 	});
