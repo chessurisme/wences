@@ -1,39 +1,26 @@
-function setAttributes(element, attributes) {
-	if (!validateParameters(element, attributes)) return;
+import { logError } from './log-error';
 
+const isValidParameters = (element, attributes) => {
+	return (
+		element instanceof HTMLElement &&
+		typeof attributes === 'object' &&
+		attributes !== null &&
+		Object.entries(attributes).length !== 0
+	);
+};
+
+const applyAttributes = (element, attributes) => {
 	Object.entries(attributes).forEach(([key, value]) => {
-		element.setAttribute(key, value);
+		typeof value === 'string'
+			? element.setAttribute(key, value)
+			: logError('SA-2', { value: typeof value });
 	});
-}
+};
 
-function validateParameters(element, attributes) {
-	if (!element || !(element instanceof HTMLElement)) {
-		console.error('Invalid element. Must be an instance of HTMLElement.');
-		return false;
-	}
-
-	if (!attributes || typeof attributes !== 'object') {
-		console.error('Invalid attributes. Must be a non-null object.');
-		return false;
-	}
-
-	if (Object.keys(attributes).length === 0) {
-		console.error('Attributes object is empty.');
-		return false;
-	}
-
-	for (const [key, value] of Object.entries(attributes)) {
-		if (typeof key !== 'string') {
-			console.error('Attribute key must be a string.');
-			return false;
-		}
-		if (typeof value !== 'string') {
-			console.error(`Attribute "${key}" value should be a string.`);
-			return false;
-		}
-	}
-
-	return true;
-}
+const setAttributes = (element, attributes) => {
+	isValidParameters(element, attributes)
+		? applyAttributes(element, attributes)
+		: logError('SA-1');
+};
 
 export { setAttributes };
