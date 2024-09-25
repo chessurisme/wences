@@ -1,5 +1,6 @@
 import { validateParameters } from '../validate-parameters';
 import { applyBehavior } from './apply-behavior';
+import { logError } from '../error-manager';
 
 const setBehavior = (element, behavior) => {
 	validateParameters(element, behavior)
