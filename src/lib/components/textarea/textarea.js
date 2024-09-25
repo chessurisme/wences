@@ -1,33 +1,22 @@
-import { containerFactory } from '../../utilities/container-factory';
+import './textarea.css';
+import { BaseComponent } from '../base-component/base-component';
 
-const textarea = (config) => {
-	const {
-		id,
-		className,
-		placeholder,
-		value,
-		readonly = false,
-		hidden = false
-	} = config;
+const Textarea = (config) => {
+	const { attribute } = config;
 
-	const textareaAttributes = {
-		id: id,
-		class: className,
-		placeholder: placeholder
-	};
-	const textareaProps = {
-		value: value,
-		readonly: readonly,
-		hidden: hidden
-	};
+	const className = 'wences-textarea';
+	attribute.class = `${className} ${attribute.class || ''}`.trim();
+	const textarea = BaseComponent(config, 'textarea');
 
-	const textarea = containerFactory(
-		'textarea',
-		textareaAttributes,
-		textareaProps
-	);
+	textarea.addEventListener('input', (event) => {
+		textarea.style.height = 'auto';
+
+		const scrollHeight = event.target.scrollHeight + 2;
+
+		textarea.style.height = `${scrollHeight}px`;
+	});
 
 	return textarea;
 };
 
-export { textarea };
+export { Textarea };
