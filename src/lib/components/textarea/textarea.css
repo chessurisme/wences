@@ -1,0 +1,13 @@
+.wences-textarea {
+	width: 100%;
+	min-height: 2lh;
+	height: auto;
+	box-sizing: border-box;
+	font-family: Inter, sans-serif;
+	font-size: 12pt;
+	overflow: hidden;
+	outline: none;
+	resize: none;
+	padding: 12px;
+	border-radius: 10px;
+}
