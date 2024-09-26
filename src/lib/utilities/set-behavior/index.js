@@ -2,10 +2,6 @@ import { validateParameters } from '../validate-parameters';
 import { applyBehavior } from './apply-behavior';
 import { logError } from '../error-manager';
 
-import { validateParameters } from '../validate-parameters';
-import { applyBehavior } from './apply-behavior';
-import { logError } from '../error-manager';
-
 /**
  * Sets event listeners on a specified HTML element after validating the parameters. If the parameters are invalid, an error is logged.
  *
