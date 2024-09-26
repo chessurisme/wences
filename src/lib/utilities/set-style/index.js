@@ -8,6 +8,7 @@ import { logError } from '../error-manager';
  *
  * @param {HTMLElement} element - The HTML element to which the styles will be applied. Must be a valid HTMLElement.
  * @param {Object} styles - An object containing key-value pairs where each key represents a CSS property (in camelCase) and each value is either a string or a nested object for custom properties.
+ * @param {string|object} styles.style -A string representing the CSS value, or an object for nested custom properties
  *
  * @returns {void}
  */
