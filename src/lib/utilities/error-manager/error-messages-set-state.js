@@ -4,3 +4,5 @@ const setStateErrorMessages = {
 	'SS-2': (props) =>
 		`Invalid value: The value of "${props.key}" must be a boolean.`
 };
+
+export { setStateErrorMessages };
