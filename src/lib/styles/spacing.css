@@ -1,0 +1,8 @@
+:root {
+	--s-xs: calc(var(--phi) / var(--s-s));
+	--s-s: calc(var(--phi) / var(--s-r));
+	--s-r: var(--font-size);
+	--s-l: calc(var(--phi) * var(--s-r));
+	--s-xl: calc(var(--phi) * var(--s-l));
+	--s-xxl: calc(var(--phi) * var(--s-xl));
+}
