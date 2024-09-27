@@ -1,19 +1,14 @@
+@import url(./color.css);
+@import url(./typography.css);
+@import url(./spacing.css);
+
 :root {
-	/*? Default */
-	--background-color: var(--white-0);
-	--text-color: var(--black-0);
+	/* Theme */
+	--background-color: --neutral-100;
+	--color: --neutral-900;
 
-	/* Colors */
-	--black-0: #0a0a0a;
-	--black-1: #161616;
-	--black-2: #1d1c1c;
-	--black-3: #232323;
-	--black-4: #2c2c2c;
-	--black-5: #363636;
-	--black-6: #454444;
-
-	--white-0: #eaeaea;
-	--white-1: #acacac;
+	/* Golden Ratio */
+	--phi: calc((1 + sqrt(5)) / 2);
 
 	/* Typography Sizes */
 	--text-xsmall: 8pt;
@@ -33,9 +28,4 @@
 	--mp-regular: 16px;
 	--mp-large: 32px;
 	--mp-xlarge: 64px;
-
-	/* Cautionary */
-	--warning-color: #e10617;
-	--caution-color: #fdaa15;
-	--info-color: #007588;
 }
