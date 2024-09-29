@@ -14,11 +14,12 @@ const verifyConfig = (config) => {
 		}
 	];
 
-	conditionList.forEach((item) => {
+	for (const item of conditionList) {
 		if (item.condition) {
-			return console.error(item.message);
+			console.error(item.message);
+			return;
 		}
-	});
+	}
 };
 
 export { verifyConfig };
