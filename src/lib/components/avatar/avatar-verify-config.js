@@ -16,7 +16,7 @@ const verifyConfig = (config) => {
 
 	conditionList.forEach((item) => {
 		if (item.condition) {
-			console.error(item.message);
+			return console.error(item.message);
 		}
 	});
 };
