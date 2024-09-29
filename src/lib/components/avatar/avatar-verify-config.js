@@ -1,5 +1,5 @@
 const verifyConfig = (config) => {
-	if (!config) {
+	if (!config || Object.entries(config).length === 0) {
 		return console.error('Invalid input: Config is empty.');
 	}
 
