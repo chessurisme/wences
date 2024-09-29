@@ -1,21 +1,12 @@
-import './avatar.css';
-import { BaseComponent } from '../base-component/base-component';
+import { verifyConfig } from './avatar-verify-config';
 
 const Avatar = (config) => {
-	const { attribute, content } = config;
-
-	const className = `wences-avatar`;
-	attribute.class = `${className} ${attribute.class || ''}`.trim();
-
-	const avatar = BaseComponent(config);
-
-	if (content.src) {
-		const image = document.createElement('img');
-		image.src = content.src;
-		avatar.appendChild(image);
-	}
-
+	const avatar = createAvatarNode(config);
 	return avatar;
+};
+
+const createAvatarNode = (config) => {
+	if (!verifyConfig(config)) return;
 };
 
 export { Avatar };
