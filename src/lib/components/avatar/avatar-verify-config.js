@@ -1,9 +1,9 @@
 const verifyConfig = (config) => {
+	if (!config) {
+		return console.error('Invalid input: Config is empty.');
+	}
+
 	const conditionList = [
-		{
-			condition: !config,
-			message: 'Invalid input: Config is empty.'
-		},
 		{
 			condition: !config.attribute,
 			message: 'Invalid input: No attribute found in the config.'
