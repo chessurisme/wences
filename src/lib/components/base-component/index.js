@@ -1,8 +1,8 @@
-import { setAttributes } from '../../utilities/set-attributes';
-import { setBehavior } from '../../utilities/set-behavior';
-import { setContent } from '../../utilities/set-content';
-import { setState } from '../../utilities/set-state';
-import { setStyles } from '../../utilities/set-style';
+import { setAttributes } from '../../utilities/set-attributes/index.js';
+import { setBehavior } from '../../utilities/set-behavior/index.js';
+import { setContent } from '../../utilities/set-content/index.js';
+import { setState } from '../../utilities/set-state/index.js';
+import { setStyles } from '../../utilities/set-style/index.js';
 import './component-config.js';
 
 /**
