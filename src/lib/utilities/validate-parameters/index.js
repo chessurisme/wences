@@ -12,8 +12,7 @@ const validateParameters = (element, object) => {
 		element === undefined ||
 		element === null ||
 		typeof element !== 'object' ||
-		element.nodeType !== 1 ||
-		element instanceof HTMLElement
+		element.nodeType !== 1
 	) {
 		return false;
 	}
