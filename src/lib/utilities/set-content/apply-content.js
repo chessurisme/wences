@@ -4,7 +4,7 @@ import { appendIcon } from './append-icon';
 import { appendElements } from './append-elements';
 
 /**
- * Applies content to a specified HTML element based on the provided content object. 
+ * Applies content to a specified HTML element based on the provided content object.
  * Supports text, icons, and multiple elements. Logs an error for unsupported content keys.
  *
  * @param {HTMLElement} element - The HTML element to which the content will be applied. Must be a valid HTMLElement.
@@ -13,8 +13,8 @@ import { appendElements } from './append-elements';
  * @param {string} [content.icon] - (Optional) The Lucide icon name to append to the element (used by `appendIcon`).
  * @param {Array<HTMLElement|SVGElement>} [content.elements] - (Optional) An array of elements to append to the element (used by `appendElements`).
  * @param {number} [content.index] - (Optional) An index value for indexed component.
- * 
- * @returns {void}
+ *
+ * @returns {HTMLElement | void}
  */
 const applyContent = (element, content) => {
 	Object.entries(content).forEach(([key, value]) => {
@@ -34,6 +34,8 @@ const applyContent = (element, content) => {
 				logError('SC-2', { key: key });
 		}
 	});
+
+	return element;
 };
 
 export { applyContent };

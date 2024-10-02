@@ -12,7 +12,7 @@ import { logError } from '../error-manager';
  *   - An existing SVG element.
  *   Non-supported types will trigger an error log.
  *
- * @returns {void}
+ * @returns {HTMLElement | void}
  */
 const appendIcon = (element, icon) => {
 	// Only support Lucide icons as of now
@@ -21,12 +21,12 @@ const appendIcon = (element, icon) => {
 		iconContainer.dataset.lucide = icon;
 
 		element.appendChild(iconContainer);
-		return;
+		return element;
 	}
 
 	if (icon instanceof HTMLElement || icon instanceof SVGElement) {
 		element.appendChild(icon);
-		return;
+		return element;
 	}
 
 	logError('SC-4');

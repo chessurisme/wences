@@ -7,7 +7,7 @@ import { logError } from '../error-manager';
  * @param {HTMLElement} element - The HTML element to which the text will be appended. Must be a valid HTMLElement.
  * @param {string} text - The text to append to the element. Must be a string; non-string values will trigger an error log.
  *
- * @returns {void}
+ * @returns {HTMLElement | void}
  */
 const appendText = (element, text) => {
 	if (typeof text !== 'string') return logError('SC-3');
@@ -15,6 +15,8 @@ const appendText = (element, text) => {
 	const textHolder = document.createElement('p');
 	textHolder.textContent = text;
 	element.appendChild(textHolder);
+
+	return element;
 };
 
 export { appendText };

@@ -8,22 +8,20 @@ import { logError } from '../error-manager';
  * @param {Array<HTMLElement|SVGElement>} elements - An array of elements to append.
  *   Each element must be either an HTML element or an SVG element; non-supported types will trigger an error log.
  *
- * @returns {void}
+ * @returns {HTMLElement | void}
  */
 const appendElements = (element, elements) => {
 	if (!Array.isArray(elements)) return logError('SC-5');
 
 	elements.forEach((valueElement) => {
-		if (
-			valueElement instanceof HTMLElement ||
-			valueElement instanceof SVGElement
-		) {
-			element.appendChild(valueElement);
-			return;
+		if (element.nodeType !== 1) {
+			return logError('SC-6');
 		}
 
-		logError('SC-6');
+		element.appendChild(valueElement);
 	});
+
+	return element;
 };
 
 export { appendElements };

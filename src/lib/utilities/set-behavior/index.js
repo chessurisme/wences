@@ -10,12 +10,16 @@ import { logError } from '../error-manager';
  *                            and each value is the corresponding event handler function.
  * @param {function} behavior.eventHandler - The event handler function to be associated with the event type. Non-function values will trigger an error log.
  *
- * @returns {void}
+ * @returns {HTMLElement | void}
  */
 const setBehavior = (element, behavior) => {
-	validateParameters(element, behavior)
-		? applyBehavior(element, behavior)
-		: logError('SB-1');
+	if (!validateParameters(element, behavior)) {
+		return logError('SB-1');
+	}
+
+	applyBehavior(element, behavior);
+
+	return element;
 };
 
 export { setBehavior };

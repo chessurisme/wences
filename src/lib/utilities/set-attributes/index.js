@@ -9,12 +9,16 @@ import { logError } from '../error-manager';
  * @param {Object} attributes - An object containing key-value pairs of attributes to apply to the element.
  * @param {string} attributes.attribute - The value to assign to the attribute. Only string values are accepted; non-string values will trigger an error log.
   
- * @returns {void}
+ * @returns {HTMLElement | void}
  */
 const setAttributes = (element, attributes) => {
-	validateParameters(element, attributes)
-		? applyAttributes(element, attributes)
-		: logError('SA-1');
+	if (!validateParameters(element, attributes)) {
+		return logError('SA-1');
+	}
+
+	applyAttributes(element, attributes);
+
+	return element;
 };
 
 export { setAttributes };

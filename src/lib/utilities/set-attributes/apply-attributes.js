@@ -8,14 +8,18 @@ import { logError } from '../error-manager';
  * @param {string} attributes.key - The attribute name to set on the element.
  * @param {string} attributes.value - The value to assign to the attribute. Only string values are accepted; non-string values will trigger an error log.
  *
- * @returns {void}
+ * @returns {HTMLElement | void}
  */
 const applyAttributes = (element, attributes) => {
 	Object.entries(attributes).forEach(([key, value]) => {
-		typeof value === 'string'
-			? element.setAttribute(key, value)
-			: logError('SA-2', { value: typeof value });
+		if (typeof value !== 'string') {
+			return logError('SA-2', { value: typeof value });
+		}
+
+		element.setAttribute(key, value);
 	});
+
+	return element;
 };
 
 export { applyAttributes };

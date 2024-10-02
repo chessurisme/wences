@@ -8,7 +8,7 @@ import { logError } from '../error-manager';
  * @param {Object} behavior - An object where keys represent event types (e.g., 'click', 'onmouseover') and values are the corresponding event handler functions.
  * @param {function} behavior.eventHandler - The event handler function to bind to the event type. Non-function values will trigger an error log.
  *
- * @returns {void}
+ * @returns {HTMLElement | void}
  */
 const applyBehavior = (element, behavior) => {
 	const tagName = element.tagName.toLowerCase();
@@ -20,10 +20,14 @@ const applyBehavior = (element, behavior) => {
 			? key.substring(2).toLowerCase()
 			: key.toLowerCase();
 
-		eventType in document.createElement(tagName)
-			? element.addEventListener(eventType, value)
-			: logError('SB-3', { tagName: tagName, eventType: eventType });
+		if (!(eventType in element)) {
+			return logError('SB-3', { tagName: tagName, eventType: eventType });
+		}
+
+		element.addEventListener(eventType, value);
 	});
+
+	return element;
 };
 
 export { applyBehavior };
