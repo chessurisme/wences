@@ -17,9 +17,11 @@ const verifyConfig = (config) => {
 	for (const item of conditionList) {
 		if (item.condition) {
 			console.error(item.message);
-			return;
+			return false;
 		}
 	}
+
+	return true;
 };
 
 export { verifyConfig };
