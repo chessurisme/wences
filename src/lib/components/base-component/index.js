@@ -15,7 +15,7 @@ import './component-config.js';
  * @returns {HTMLElement} The created HTML element configured with the provided options.
  */
 const BaseComponent = (config, tagName = 'div') => {
-	const { attribute, behavior, style, content, state } = config;
+	const { attribute, behavior, style, state } = config;
 
 	const component = document.createElement(tagName);
 
@@ -29,10 +29,6 @@ const BaseComponent = (config, tagName = 'div') => {
 
 	if (style) {
 		setStyles(component, style);
-	}
-
-	if (content) {
-		setContent(component, content);
 	}
 
 	if (state) {
