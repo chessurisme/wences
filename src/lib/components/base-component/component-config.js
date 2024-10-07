@@ -6,12 +6,6 @@
  * @property {Object} [behavior] - An object containing event handlers to set on the component.
  * @property {Function} [behavior.eventType] - The function to call when the specified event occurs (e.g., `click`, `mouseover`).
  *
- * @property {Object} [content] - An object containing content to apply to the component.
- * @property {string|Array<HTMLElement|SVGElement>} [content.value] - The content to set, which can be:
- *    - A string (e.g., text content).
- *    - An array of elements (for multiple DOM elements or SVG elements).
- *    - An icon or an index (for specific content types).
- *
  * @property {Object} [state] - An object containing boolean attributes to apply to the component.
  * @property {boolean} [state.value] - The value for the boolean attribute (true or false).
  *
