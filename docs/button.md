@@ -20,13 +20,13 @@ Supports all [HTML Event Attributes](https://developer.mozilla.org/en-US/docs/We
 
 ### `content: {}`
 
-| Property | Type                                  | Description                    | Default      | Possible Values                                             |
-|----------|---------------------------------------|--------------------------------|--------------|-------------------------------------------------------------|
-| `text`   | `string`                              | Button text content            | `undefined`  | Any string                                                  |
-| `icon`   | `string \| SVGElement \| HTMLElement` | Button icon                    | `undefined`  | Icon identifier, SVG, or HTML element                       |
-| `type`   | `string`                              | Visual hierarchy of the button | `'tertiary'` | `'primary'`, `'secondary'`, `'tertiary'`                    |
-| `href`   | `string`                              | URL for link buttons           | `undefined`  | Any valid URL                                               |
-| `target` | `string`                              | Link target (for `href`)       | `undefined`  | `'_blank'`, `'_self'`, `'_parent'`, `'_top'`, or frame name |
+| Property | Type                                  | Description                    | Default     | Possible Values                                             |
+|----------|---------------------------------------|--------------------------------|-------------|-------------------------------------------------------------|
+| `text`   | `string`                              | Button text content            | `undefined` | Any string                                                  |
+| `icon`   | `string \| SVGElement \| HTMLElement` | Button icon                    | `undefined` | Icon identifier, SVG, or HTML element                       |
+| `type`   | `string`                              | Visual hierarchy of the button | `'primary'` | `'primary'`, `'secondary'`, `'tertiary'`                    |
+| `href`   | `string`                              | URL for link buttons           | `undefined` | Any valid URL                                               |
+| `target` | `string`                              | Link target (for `href`)       | `undefined` | `'_blank'`, `'_self'`, `'_parent'`, `'_top'`, or frame name |
 
 ### `state: {}`
 
