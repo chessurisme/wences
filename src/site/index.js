@@ -1,22 +1,37 @@
-import { createIcons, Grid } from 'lucide';
-import { Avatar } from '../lib/components/avatar/avatar';
+import { createIcons, Grid, Heart } from 'lucide';
+import { Button } from '../lib/components/button';
 
 function initializeApp() {
-	const avatar = Avatar({
+	const button = Button({
+		accessibility: {
+			role: 'button',
+			checked: 'true'
+		},
 		attribute: {
-			class: 'apple',
-			src: '../../assets/favicons/android-chrome-512x512.png',
-			title: 'Avatar'
+			id: 'main'
 		},
 		behavior: {
-			onclick: () => console.log('I am an avatar.')
+			click: () => console.log('Hey'),
+			onmouseover: () => {
+				console.log('Grid!');
+			}
+		},
+		content: {
+			icon: 'grid',
+			text: 'Press me'
 		}
 	});
 
-	const elements = [avatar];
+	const elements = [button];
 
 	elements.forEach((element) => {
 		document.body.appendChild(element);
+	});
+
+	button.addEventListener('click', () => {
+		let p = button.querySelector('svg');
+		p = `<i data-lucide='heart'></i>`;
+		createIcons({ icons: { Grid, Heart } });
 	});
 }
 
@@ -24,6 +39,7 @@ initializeApp();
 
 createIcons({
 	icons: {
-		Grid
+		Grid,
+		Heart
 	}
 });
