@@ -43,13 +43,13 @@ describe('applyBehavior', () => {
 
 		it('should log an error when the event type is not valid for the element', () => {
 			const mockClickHandler = jest.fn();
-			const behavior = { oninvalid: mockClickHandler }; // 'oninvalid' not supported on <button>
+			const behavior = { oninvalids: mockClickHandler }; // 'oninvalids'is not valid event type
 
 			applyBehavior(element, behavior);
 
 			expect(logError).toHaveBeenCalledWith('SB-3', {
 				tagName: 'button',
-				eventType: 'invalid'
+				eventType: 'oninvalids'
 			});
 			expect(mockClickHandler).not.toHaveBeenCalled();
 		});

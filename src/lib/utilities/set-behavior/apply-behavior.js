@@ -16,15 +16,23 @@ const applyBehavior = (element, behavior) => {
 	Object.entries(behavior).forEach(([key, value]) => {
 		if (typeof value !== 'function') return logError('SB-2', { key: key });
 
-		const eventType = key.startsWith('on')
+		const withOnPrefixEventType = !key.startsWith('on')
+			? `on${key}`.toLowerCase()
+			: key.toLowerCase();
+
+		if (!(withOnPrefixEventType in element)) {
+			console.dir(element);
+			return logError('SB-3', {
+				tagName: tagName,
+				eventType: withOnPrefixEventType
+			});
+		}
+
+		const withoutOnPrefixEventType = key.startsWith('on')
 			? key.substring(2).toLowerCase()
 			: key.toLowerCase();
 
-		if (!(eventType in element)) {
-			return logError('SB-3', { tagName: tagName, eventType: eventType });
-		}
-
-		element.addEventListener(eventType, value);
+		element.addEventListener(withoutOnPrefixEventType, value);
 	});
 
 	return element;
