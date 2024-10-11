@@ -1,18 +1,23 @@
-import { createIcons, Grid, Heart } from 'lucide';
-import { SwitchToggle } from '../lib/components/switch';
+import {
+	createIcons,
+	CircleCheck,
+	CircleX,
+	Info,
+	X,
+	TriangleAlert
+} from 'lucide';
+import { Callout } from '../lib/components/callout';
 
 function initializeApp() {
-	const switchToggle = SwitchToggle({
-		attribute: {
-			class: 'Test'
-		},
+	const callout = Callout({
 		content: {
-			on: () => console.log('On'),
-			off: () => console.log('Off'),
-			default: 'on'
+			type: 'success',
+			title: 'Very Good!',
+			body: 'You score 20/20.'
 		}
 	});
-	const elements = [switchToggle];
+
+	const elements = [callout];
 
 	elements.forEach((element) => {
 		document.body.appendChild(element);
@@ -23,7 +28,10 @@ initializeApp();
 
 createIcons({
 	icons: {
-		Grid,
-		Heart
+		X,
+		CircleCheck,
+		Info,
+		TriangleAlert,
+		CircleX
 	}
 });
