@@ -21,9 +21,7 @@ function verifyContent(content) {
 
 	if (type !== undefined) {
 		const validButtonTypes = ['primary', 'secondary', 'tertiary'];
-		if (!verifyType(type, validButtonTypes)) {
-			return false;
-		}
+		if (!verifyType(type, validButtonTypes)) return false;
 	}
 
 	if (href !== undefined && !verifyHref(href)) {
