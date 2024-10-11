@@ -1,23 +1,13 @@
-import {
-	createIcons,
-	CircleCheck,
-	CircleX,
-	Info,
-	X,
-	TriangleAlert
-} from 'lucide';
-import { Callout } from '../lib/components/callout';
+import { Textarea } from '../lib/components/textarea';
 
 function initializeApp() {
-	const callout = Callout({
-		content: {
-			type: 'success',
-			title: 'Very Good!',
-			body: 'You score 20/20.'
+	const textarea = Textarea({
+		attribute: {
+			placeholder: "What's up?"
 		}
 	});
 
-	const elements = [callout];
+	const elements = [textarea];
 
 	elements.forEach((element) => {
 		document.body.appendChild(element);
@@ -25,13 +15,3 @@ function initializeApp() {
 }
 
 initializeApp();
-
-createIcons({
-	icons: {
-		X,
-		CircleCheck,
-		Info,
-		TriangleAlert,
-		CircleX
-	}
-});
