@@ -1,17 +1,18 @@
 import { createIcons, Grid, Heart } from 'lucide';
-import { Avatar } from '../lib/components/avatar';
+import { SwitchToggle } from '../lib/components/switch';
 
 function initializeApp() {
-	const avatar = Avatar({
-		accessibility: {
-			role: 'img'
-		},
+	const switchToggle = SwitchToggle({
 		attribute: {
-			src: '../../assets/favicons/android-chrome-512x512.png'
+			class: 'Test'
+		},
+		content: {
+			on: () => console.log('On'),
+			off: () => console.log('Off'),
+			default: 'on'
 		}
 	});
-
-	const elements = [avatar];
+	const elements = [switchToggle];
 
 	elements.forEach((element) => {
 		document.body.appendChild(element);
