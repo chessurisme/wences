@@ -1,17 +1,14 @@
 import { Container } from '../container';
 
 const Textarea = (config) => {
-	const { attribute } = config;
-
-	const className = 'wences-textarea';
-	attribute.class = `${className} ${attribute.class || ''}`.trim();
-	const textarea = BaseComponent(config, 'textarea');
+	const textarea = (() => {
+		const node = Container(config, 'textarea');
+		return node;
+	})();
 
 	textarea.addEventListener('input', (event) => {
 		textarea.style.height = 'auto';
-
 		const scrollHeight = event.target.scrollHeight + 2;
-
 		textarea.style.height = `${scrollHeight}px`;
 	});
 
