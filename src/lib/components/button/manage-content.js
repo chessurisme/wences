@@ -13,7 +13,7 @@ function manageContent(node, content) {
 	}
 
 	if (type) {
-		node.classList.add(`wences-${type}`);
+		node.classList.add(`wences-button-${type}`);
 	} else {
 		node.classList.add('wences-button-primary');
 	}
