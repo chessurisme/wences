@@ -1,13 +1,21 @@
-import { Textarea } from '../lib/components/textarea';
+import { Badge } from '../lib/components/badge';
 
 function initializeApp() {
-	const textarea = Textarea({
-		attribute: {
-			placeholder: "What's up?"
+	const badge = Badge({
+		content: {
+			type: 'warning',
+			text: 'Code 32'
 		}
 	});
 
-	const elements = [textarea];
+	const badge2 = Badge({
+		content: {
+			type: 'success',
+			text: 'Jest tested'
+		}
+	});
+
+	const elements = [badge, badge2];
 
 	elements.forEach((element) => {
 		document.body.appendChild(element);
