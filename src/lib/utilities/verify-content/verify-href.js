@@ -27,11 +27,6 @@ function verifyHref(href) {
  * @returns {boolean} - Returns true if the href is valid (absolute URL, relative URL, or other protocols), false otherwise.
  */
 function isValidHref(href) {
-	/**
-	 * Helper function to check if a string is a valid href using regular expressions.
-	 * @param {string} href - The href string to check.
-	 * @returns {boolean} - Returns true if the href is valid (absolute URL, relative URL, or other protocols), false otherwise.
-	 */
 	const protocolPattern = /^[a-zA-Z][a-zA-Z\d+\-.]*:/;
 	const absoluteUrlPattern = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\/[^\s/$.?#].[^\s]*$/i;
 	const relativeUrlPattern = /^[\.\/]/;
