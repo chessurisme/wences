@@ -18,6 +18,12 @@ function verifyElements(elements, validTypes) {
 			return true;
 		}
 
+		const formattedValidTypes = validTypes
+			.map((validType) => `"${validType}"`)
+			.join(', ');
+		console.error(
+			`Invalid content: "elements" has invalid types. Make sure each element is one of these valid types: ${formattedValidTypes}.`
+		);
 		return false;
 	};
 
