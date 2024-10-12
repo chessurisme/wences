@@ -5,7 +5,7 @@ function verifyContent(content) {
 	const { type, text } = content;
 
 	if (
-		type !== undefined ||
+		type !== undefined &&
 		!verifyType(type, [
 			'primary',
 			'secondary',
