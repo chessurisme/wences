@@ -16,15 +16,30 @@ function manageConfig(config) {
 		inputNode.type = type === 'radio' ? 'radio' : 'checkbox';
 		inputNode.name = name;
 
-		spanNode.textContent = item;
+		if (typeof item === 'object' && item.list) {
+			spanNode.textContent = item.content;
 
-		if (checkIndex && checkIndex.includes(indexOfItems)) {
-			inputNode.checked = true;
+			if (checkIndex && checkIndex.includes(indexOfItems)) {
+				inputNode.checked = true;
+			}
+
+			const nestedListNode = item.list;
+			nestedListNode.style.paddingLeft = '40px';
+			labelNode.appendChild(inputNode);
+			labelNode.appendChild(spanNode);
+			listNode.appendChild(labelNode);
+			listNode.appendChild(nestedListNode);
+		} else {
+			spanNode.textContent = item;
+
+			if (checkIndex && checkIndex.includes(indexOfItems)) {
+				inputNode.checked = true;
+			}
+
+			labelNode.appendChild(inputNode);
+			labelNode.appendChild(spanNode);
+			listNode.appendChild(labelNode);
 		}
-
-		labelNode.appendChild(inputNode);
-		labelNode.appendChild(spanNode);
-		listNode.appendChild(labelNode);
 
 		fragment.appendChild(listNode);
 	});
