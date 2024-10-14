@@ -4,7 +4,7 @@ function verifyConfig(config) {
 	const { content } = config;
 	const { type, checkIndex, items } = content;
 
-	if (!type || verifyType()) {
+	if (!type || !verifyType(type, ['checkbox', 'radio'])) {
 		console.error(
 			'Invalid content: "type" must not be empty. Make sure it is set to "checkbox" or "radio".'
 		);
@@ -25,7 +25,7 @@ function verifyConfig(config) {
 		return false;
 	}
 
-	if (type === 'radio' || checkIndex.length > 1) {
+	if (type === 'radio' && checkIndex.length > 1) {
 		console.error(
 			'Invalid content: "checkIndex" must contain only one item when the "type" is "radio".'
 		);
