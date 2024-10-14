@@ -1,21 +1,19 @@
-import { Badge } from '../lib/components/badge';
+import { ToggleList } from '../lib/components/list/toggle';
 
 function initializeApp() {
-	const badge = Badge({
+	const list = ToggleList({
+		attribute: {
+			class: 'list'
+		},
 		content: {
-			type: 'warning',
-			text: 'Code 32'
+			name: 'jelly',
+			checkIndex: [1],
+			type: 'checkbox',
+			items: ['apple', 'pear', 'grapes', 'date']
 		}
 	});
 
-	const badge2 = Badge({
-		content: {
-			type: 'success',
-			text: 'Jest tested'
-		}
-	});
-
-	const elements = [badge, badge2];
+	const elements = [list];
 
 	elements.forEach((element) => {
 		document.body.appendChild(element);
