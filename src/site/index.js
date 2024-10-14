@@ -1,14 +1,16 @@
 import { ToggleList } from '../lib/components/list/toggle';
+import { NonToggleList } from '../lib/components/list/non-toggle';
 
 function initializeApp() {
-	const list = ToggleList({
+	const list = NonToggleList({
 		attribute: {
 			class: 'list'
 		},
 		content: {
 			name: 'jelly',
 			checkIndex: [1],
-			type: 'checkbox',
+			type: 'alphabet',
+			case: 'upper',
 			items: [
 				'pastry',
 				'bread',
@@ -16,38 +18,38 @@ function initializeApp() {
 				'vegetables',
 				{
 					content: 'fruits',
-					list: ToggleList({
+					list: NonToggleList({
 						attribute: {
 							class: 'list'
 						},
 						content: {
 							name: 'fruits',
 							checkIndex: [],
-							type: 'checkbox',
+							type: 'square',
 							items: [
 								'strawberry',
 								'pomelo',
 								{
 									content: 'orange',
-									list: ToggleList({
+									list: NonToggleList({
 										attribute: {
 											class: 'list'
 										},
 										content: {
 											name: 'fruits',
 											checkIndex: [],
-											type: 'checkbox',
+											type: 'circle',
 											items: [
 												'tangelo',
 												'tangerine',
 												{
 													content: 'clementine',
-													list: ToggleList({
+													list: NonToggleList({
 														attribute: { class: 'okay' },
 														content: {
 															name: 'perfect',
 															checkIndex: [2],
-															type: 'radio',
+															type: 'disc',
 															items: [
 																'Algerian',
 																'Nules',
