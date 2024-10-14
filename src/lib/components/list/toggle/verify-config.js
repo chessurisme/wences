@@ -25,6 +25,13 @@ function verifyConfig(config) {
 		return false;
 	}
 
+	if (type === 'radio' || checkIndex.length > 1) {
+		console.error(
+			'Invalid content: "checkIndex" must contain only one item when the "type" is "radio".'
+		);
+		return false;
+	}
+
 	return true;
 }
 
