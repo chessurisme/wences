@@ -2,7 +2,7 @@ import { verifyType } from '../../../utilities/verify-content/verify-type';
 
 function verifyConfig(config) {
 	const { content } = config;
-	const { type, checkIndex, items } = content;
+	const { type, checkIndex, name, items } = content;
 
 	if (!type || !verifyType(type, ['checkbox', 'radio'])) {
 		console.error(
@@ -28,6 +28,13 @@ function verifyConfig(config) {
 	if (type === 'radio' && checkIndex.length > 1) {
 		console.error(
 			'Invalid content: "checkIndex" must contain only one item when the "type" is "radio".'
+		);
+		return false;
+	}
+
+	if (typeof name !== 'string' || name.trim() === '') {
+		console.error(
+			'Invalid content: "name" must not be empty and must be a type of string.'
 		);
 		return false;
 	}
