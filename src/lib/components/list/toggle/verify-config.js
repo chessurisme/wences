@@ -25,6 +25,20 @@ function verifyConfig(config) {
 		return false;
 	}
 
+	if (Array.isArray(items)) {
+		items.forEach((item) => {
+			if (typeof item === 'object' && !item.content) {
+				console.error('Invalid content: "items.content" must not be empty.');
+				return false;
+			}
+
+			if (typeof item === 'object' && !item.list) {
+				console.error('Invalid content: "items.list" must not be empty.');
+				return false;
+			}
+		});
+	}
+
 	if (type === 'radio' && checkIndex.length > 1) {
 		console.error(
 			'Invalid content: "checkIndex" must contain only one item when the "type" is "radio".'
