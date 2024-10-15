@@ -47,3 +47,10 @@ function initializeApp() {
 }
 
 initializeApp();
+
+createIcons({
+	icons: {
+		X,
+		Heart
+	}
+});
