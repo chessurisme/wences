@@ -1,78 +1,45 @@
-import { ToggleList } from '../lib/components/list/toggle';
-import { NonToggleList } from '../lib/components/list/non-toggle';
+import { Accordion } from '../lib/components/accordion';
 
 function initializeApp() {
-	const list = NonToggleList({
+	const accordion = Accordion({
 		attribute: {
-			class: 'list'
+			id: 'myAccordion',
+			class: 'ten-faq'
 		},
 		content: {
-			name: 'jelly',
-			checkIndex: [1],
-			type: 'alphabet',
-			case: 'upper',
-			items: [
-				'pastry',
-				'bread',
-				'sweets',
-				'vegetables',
+			headerNameTag: 'h1',
+			headerText: 'Component Library',
+			sections: [
 				{
-					content: 'fruits',
-					list: NonToggleList({
-						attribute: {
-							class: 'list'
-						},
-						content: {
-							name: 'fruits',
-							checkIndex: [],
-							type: 'square',
-							items: [
-								'strawberry',
-								'pomelo',
-								{
-									content: 'orange',
-									list: NonToggleList({
-										attribute: {
-											class: 'list'
-										},
-										content: {
-											name: 'fruits',
-											checkIndex: [],
-											type: 'circle',
-											items: [
-												'tangelo',
-												'tangerine',
-												{
-													content: 'clementine',
-													list: NonToggleList({
-														attribute: { class: 'okay' },
-														content: {
-															name: 'perfect',
-															checkIndex: [2],
-															type: 'disc',
-															items: [
-																'Algerian',
-																'Nules',
-																'Fina',
-																'Clementine di Calabria',
-																'Clementine del Golfo di Taranto'
-															]
-														}
-													})
-												}
-											]
-										}
-									})
-								}
-							]
-						}
-					})
+					title: 'What is a component library?',
+					panel:
+						'A component library is useful because it provides a set of reusable, pre-built UI elements (like buttons, forms, or modals) that developers can easily integrate into projects.'
+				},
+				{
+					title: 'Why component library is useful?',
+					panel:
+						'This helps ensure consistency across applications, reduces development time, and improves code maintainability. Instead of building each component from scratch, developers can focus on application logic, making the development process faster and more efficient while maintaining a unified look and feel across different parts of the app.'
+				},
+				{
+					title: 'What are common components?',
+					panel:
+						'Common components in a component library include buttons, forms, modals, navigation bars, tables, and icons. These are elements that can be reused in different parts of a project to maintain a consistent UI.'
+				},
+				{
+					title: 'How does a component library improve collaboration?',
+					panel:
+						'By providing a shared set of components, a component library helps teams work more efficiently together. Designers and developers can follow the same design patterns, reducing misunderstandings and ensuring that the UI remains cohesive across the project.'
+				},
+				{
+					title: 'What technologies are used to build component libraries?',
+					panel:
+						'Component libraries are typically built using web technologies like HTML, CSS, and JavaScript. Frameworks like React, Vue, or Angular are often used to create more dynamic and reusable components.'
 				}
 			]
 		}
 	});
 
-	const elements = [list];
+	const elements = [accordion];
 
 	elements.forEach((element) => {
 		document.body.appendChild(element);
