@@ -61,6 +61,7 @@ function manageConfig(config) {
 	});
 
 	node.appendChild(fragment);
+	node.classList.add('wences-non-toggle-list');
 
 	return node;
 }
