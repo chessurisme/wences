@@ -3,7 +3,7 @@ import { appendText } from '../../utilities/set-content/append-text';
 function manageContent(node, content) {
 	const { type, text } = content;
 
-	node.classList.add('wences-badge');
+	node.dataset.wences = 'badge';
 
 	if (type) {
 		node.classList.add(`wences-badge-${type}`);

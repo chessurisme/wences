@@ -7,7 +7,7 @@ const Callout = (config) => {
 
 	const node = Container(config, 'section');
 	const callout = (() => {
-		node.classList.add('wences-callout');
+		node.dataset.wences = 'callout';
 		return manageContent(node, config.content);
 	})();
 	return callout;

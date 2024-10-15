@@ -45,7 +45,7 @@ function manageConfig(config) {
 	});
 
 	node.appendChild(fragment);
-	node.classList.add('wences-toggle-list');
+	node.dataset.wences = 'toggle-list';
 
 	return node;
 }

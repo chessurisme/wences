@@ -26,7 +26,7 @@ const SwitchToggle = (config) => {
 		return container;
 	})();
 	const switchToggle = (() => {
-		node.classList.add('wences-switch-toggle');
+		node.dataset.wences = 'switch-toggle';
 		return manageContent(node, config.content);
 	})();
 

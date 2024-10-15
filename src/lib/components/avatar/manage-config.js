@@ -2,7 +2,7 @@ function manageConfig(node, config) {
 	const { attribute } = config;
 	const { title, alt } = attribute;
 
-	node.classList.add('wences-avatar');
+	node.dataset.wences = 'avatar';
 
 	if (!title) {
 		node.title = 'Avatar';

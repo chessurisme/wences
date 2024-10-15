@@ -7,6 +7,7 @@ const Textarea = (config) => {
 	})();
 
 	textarea.addEventListener('input', (event) => {
+		textarea.dataset.wences = 'textarea';
 		textarea.style.height = 'auto';
 		const scrollHeight = event.target.scrollHeight + 2;
 		textarea.style.height = `${scrollHeight}px`;

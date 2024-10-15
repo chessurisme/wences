@@ -7,7 +7,7 @@ const Button = (config) => {
 
 	const node = Container(config, 'button');
 	const button = (() => {
-		node.classList.add('wences-button');
+		node.dataset.wences = 'button';
 		return manageContent(node, config.content);
 	})();
 
