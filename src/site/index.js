@@ -1,78 +1,37 @@
-import { ToggleList } from '../lib/components/list/toggle';
-import { NonToggleList } from '../lib/components/list/non-toggle';
+import { createIcons, Heart, X } from 'lucide';
+import { Chip } from '../lib/components/chip';
 
 function initializeApp() {
-	const list = NonToggleList({
-		attribute: {
-			class: 'list'
+	const chip = Chip({
+		attributes: {
+			class: 'chippable'
+		},
+		behavior: {
+			click: () => console.log('I am not a chip!')
 		},
 		content: {
-			name: 'jelly',
-			checkIndex: [1],
-			type: 'alphabet',
-			case: 'upper',
-			items: [
-				'pastry',
-				'bread',
-				'sweets',
-				'vegetables',
-				{
-					content: 'fruits',
-					list: NonToggleList({
-						attribute: {
-							class: 'list'
-						},
-						content: {
-							name: 'fruits',
-							checkIndex: [],
-							type: 'square',
-							items: [
-								'strawberry',
-								'pomelo',
-								{
-									content: 'orange',
-									list: NonToggleList({
-										attribute: {
-											class: 'list'
-										},
-										content: {
-											name: 'fruits',
-											checkIndex: [],
-											type: 'circle',
-											items: [
-												'tangelo',
-												'tangerine',
-												{
-													content: 'clementine',
-													list: NonToggleList({
-														attribute: { class: 'okay' },
-														content: {
-															name: 'perfect',
-															checkIndex: [2],
-															type: 'disc',
-															items: [
-																'Algerian',
-																'Nules',
-																'Fina',
-																'Clementine di Calabria',
-																'Clementine del Golfo di Taranto'
-															]
-														}
-													})
-												}
-											]
-										}
-									})
-								}
-							]
-						}
-					})
-				}
-			]
+			thumbnail: 'heart',
+			text: 'I love you!',
+			removable: false
 		}
 	});
 
-	const elements = [list];
+	const anotherChip = Chip({
+		attributes: {
+			class: 'chippable'
+		},
+		behavior: {
+			click: () =>
+				console.log(
+					'He is indeed a chip! Just denying on its own existence! Pff.'
+				)
+		},
+		content: {
+			text: 'I hate you!'
+		}
+	});
+
+	const elements = [chip, anotherChip];
 
 	elements.forEach((element) => {
 		document.body.appendChild(element);
@@ -80,3 +39,10 @@ function initializeApp() {
 }
 
 initializeApp();
+
+createIcons({
+	icons: {
+		X,
+		Heart
+	}
+});
