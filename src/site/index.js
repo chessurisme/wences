@@ -1,45 +1,68 @@
-import { Accordion } from '../lib/components/accordion';
+import { Modal } from '../lib/components/modal';
+import { Button } from '../lib/components/button';
+import { createIcons, Play, X } from 'lucide';
 
 function initializeApp() {
-	const accordion = Accordion({
+	const text = document.createElement('p');
+	text.textContent = 'See, it works!';
+
+	const anotherText = document.createElement('p');
+	anotherText.textContent = 'I see! I see!';
+
+	const button = Button({
 		attribute: {
-			id: 'myAccordion',
-			class: 'ten-faq'
+			class: 'testButton',
+			id: 'see'
+		},
+		behavior: {
+			click: () => {
+				console.log('I meant, yes, it really works!');
+			}
 		},
 		content: {
-			headerNameTag: 'h1',
-			headerText: 'Component Library',
-			sections: [
-				{
-					title: 'What is a component library?',
-					panel:
-						'A component library is useful because it provides a set of reusable, pre-built UI elements (like buttons, forms, or modals) that developers can easily integrate into projects.'
-				},
-				{
-					title: 'Why component library is useful?',
-					panel:
-						'This helps ensure consistency across applications, reduces development time, and improves code maintainability. Instead of building each component from scratch, developers can focus on application logic, making the development process faster and more efficient while maintaining a unified look and feel across different parts of the app.'
-				},
-				{
-					title: 'What are common components?',
-					panel:
-						'Common components in a component library include buttons, forms, modals, navigation bars, tables, and icons. These are elements that can be reused in different parts of a project to maintain a consistent UI.'
-				},
-				{
-					title: 'How does a component library improve collaboration?',
-					panel:
-						'By providing a shared set of components, a component library helps teams work more efficiently together. Designers and developers can follow the same design patterns, reducing misunderstandings and ensuring that the UI remains cohesive across the project.'
-				},
-				{
-					title: 'What technologies are used to build component libraries?',
-					panel:
-						'Component libraries are typically built using web technologies like HTML, CSS, and JavaScript. Frameworks like React, Vue, or Angular are often used to create more dynamic and reusable components.'
-				}
-			]
+			text: 'Click me!'
+		},
+		style: {
+			backgroundColor: 'tomato'
 		}
 	});
 
-	const elements = [accordion];
+	const helperText = document.createElement('p');
+	helperText.textContent = 'See the console after you click.';
+	helperText.style.fontSize = 'small';
+	helperText.style.color = '#3a3a3a';
+
+	const modal = Modal({
+		attribute: {
+			class: 'myModal',
+			id: 'seeItWorks'
+		},
+		content: {
+			removable: true,
+			elements: [text, anotherText, button, helperText]
+		}
+	});
+
+	const showButton = Button({
+		attribute: {
+			class: 'showModal',
+			id: 'insist'
+		},
+		content: {
+			icon: 'play',
+			text: 'Show Modal'
+		},
+		behavior: {
+			onclick: () => {
+				modal.showModal();
+			}
+		},
+		style: {
+			backgroundColor: 'yellow'
+		}
+	});
+
+	const elements = [modal, showButton];
 
 	elements.forEach((element) => {
 		document.body.appendChild(element);
@@ -51,6 +74,6 @@ initializeApp();
 createIcons({
 	icons: {
 		X,
-		Heart
+		Play
 	}
 });
