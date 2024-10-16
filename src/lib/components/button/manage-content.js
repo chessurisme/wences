@@ -24,6 +24,12 @@ function manageContent(node, content) {
 		});
 	}
 
+	node.style.cursor = 'pointer';
+
+	if (node.disabled) {
+		node.style.cursor = 'auto';
+	}
+
 	return node;
 }
 
