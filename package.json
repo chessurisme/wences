@@ -1,0 +1,32 @@
+{
+  "name": "wences",
+  "description": "Wences is a lightweight, modular JavaScript utility for creating and managing HTML elements with a clean, declarative API. It provides a structured way to handle HTML attributes, accessibility, events, and content management through a simple configuration object.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write .",
+    "lint": "eslint . --fix"
+  },
+  "keywords": [
+    "Vanilla JavaScript",
+    "Wences",
+    "utility",
+    "DOM creation",
+    "HTML management",
+    "declarative API",
+    "elegant",
+    "configurable",
+    "component library",
+    "component creation",
+    "component management"
+  ],
+  "author": "Chessurisme",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0",
+    "prettier": "3.4.2"
+  }
+}
