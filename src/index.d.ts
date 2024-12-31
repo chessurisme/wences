@@ -285,7 +285,7 @@ export interface WencesConfig {
   general?: GeneralConfig;
   style?: StyleConfig;
   events?: EventsConfig;
-  state?: StateConfig;
+  state?: { [key in BooleanAttribute]?: boolean };
   contents?: ContentsConfig;
 }
 
