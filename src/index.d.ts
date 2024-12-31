@@ -214,8 +214,6 @@ export type CSSLengthUnit = 'px' | 'em' | 'rem' | 'vh' | 'vw' | '%';
  */
 export type CSSLength = number | `${number}${CSSLengthUnit}`;
 
-// types/config.d.ts
-
 /**
  * Configuration interfaces for Wences
  */
@@ -361,6 +359,120 @@ export declare class Wences<T extends HTMLTagName = HTMLTagName> {
    * @throws {Error} If parent element is not found
    */
   appendTo(parent: Element | string): this;
+}
+
+/**
+ * Defines all valid boolean attributes for HTML elements
+ * These attributes can be present without a value
+ */
+export type BooleanAttribute =
+  | 'allowfullscreen'
+  | 'allowpaymentrequest'
+  | 'async'
+  | 'autofocus'
+  | 'autoplay'
+  | 'checked'
+  | 'controls'
+  | 'default'
+  | 'defer'
+  | 'disabled'
+  | 'formnovalidate'
+  | 'hidden'
+  | 'ismap'
+  | 'itemscope'
+  | 'loop'
+  | 'multiple'
+  | 'muted'
+  | 'nomodule'
+  | 'novalidate'
+  | 'open'
+  | 'playsinline'
+  | 'readonly'
+  | 'required'
+  | 'reversed'
+  | 'selected'
+  | 'truespeed';
+
+/**
+ * Custom error types for configuration validation
+ */
+export class WencesConfigError extends Error {
+  constructor(message: string, public code: string, public context?: unknown) {
+    super(message);
+    this.name = 'WencesConfigError';
+  }
+}
+
+/**
+ * Utility type for deep partial configurations
+ */
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
+
+/**
+ * Type-safe configuration merger
+ */
+export type ConfigMerger<T> = {
+  merge(target: T, source: DeepPartial<T>): T;
+  clone(config: T): T;
+};
+
+/**
+ * Lifecycle event handlers
+ */
+export interface ElementLifecycle {
+  onMount?: () => void;
+  onUnmount?: () => void;
+  onUpdate?: (prevConfig: WencesConfig, nextConfig: WencesConfig) => void;
+}
+
+/**
+ * Extended Wences configuration with lifecycle
+ */
+export interface ExtendedWencesConfig extends WencesConfig {
+  lifecycle?: ElementLifecycle;
+}
+
+/**
+ * Performance monitoring configuration
+ */
+export interface PerformanceConfig {
+  measureRender?: boolean;
+  debugMode?: boolean;
+  logLevel?: 'error' | 'warn' | 'info' | 'debug';
+  metrics?: {
+    captureTimings?: boolean;
+    captureMemory?: boolean;
+    customMetrics?: Record<string, () => number>;
+  };
+}
+
+/**
+ * Server-side rendering configuration
+ */
+export interface SSRConfig {
+  hydratable?: boolean;
+  streamable?: boolean;
+  deferHydration?: boolean;
+  clientOnly?: boolean;
+}
+
+/**
+ * Validation result type
+ */
+export interface ValidationResult {
+  valid: boolean;
+  errors: WencesConfigError[];
+  warnings: string[];
+}
+
+/**
+ * Configuration validator interface
+ */
+export interface ConfigValidator {
+  validate(config: WencesConfig): ValidationResult;
+  validateProperty(path: string[], value: unknown): ValidationResult;
 }
 
 export default Wences;
