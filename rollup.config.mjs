@@ -7,12 +7,23 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 export default {
 	input: 'src/index.js',
-	output: {
-		file: 'dist/bundle.js',
-		format: 'iife',
-		name: 'MyBundle',
-		sourcemap: true
-	},
+	output: [
+		{
+			file: 'dist/index.js',
+			format: 'cjs',
+			exports: 'default'
+		},
+		{
+			file: 'dist/index.esm.js',
+			format: 'esm'
+		},
+		{
+			file: 'dist/index.min.js',
+			format: 'iife',
+			name: 'WencesComponent',
+			plugins: [terser()]
+		}
+	],
 	plugins: [
 		resolve(),
 		commonjs(),
