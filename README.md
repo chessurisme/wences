@@ -1,4 +1,4 @@
-<img src='./assets/images/Wences.svg' height="200px" alt="Wences">
+<img src='./assets/images/Wences.svg' height="150px" alt="Wences">
 
 # Wences
 
@@ -174,16 +174,6 @@ Returns the underlying DOM element.
 const element = wencesInstance.getElement();
 ```
 
-#### appendTo(parent: string | Element)
-
-Appends the element to a parent element.
-
-```javascript
-wencesInstance.appendTo('#container');
-// or
-wencesInstance.appendTo(document.querySelector('#container'));
-```
-
 ## Error Handling
 
 Wences includes runtime validation and will throw errors for:
@@ -212,13 +202,6 @@ We welcome contributions! Please follow these steps:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-### Development Setup
-
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Run tests: `npm test`
-4. Start development server: `npm run dev`
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
@@ -227,8 +210,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 For support, please:
 
-1. Check the [documentation](https://github.com/yourusername/wences/wiki)
-2. Open an [issue](https://github.com/yourusername/wences/issues)
+1. Check the [documentation](https://github.com/chessurisme/wences/blob/main/README.md)
+2. Open an [issue](https://github.com/chessurisme/wences/issues)
 
 ## Acknowledgments
 
