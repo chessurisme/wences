@@ -5,10 +5,19 @@ import StateHandler from './handlers/state-handler';
 import GeneralHandler from './handlers/general-handler';
 import StyleHandler from './handlers/style-handler';
 
+/**
+ * Wences is a lightweight library for creating and managing HTML elements.
+ */
 class Wences {
 	#element;
 	#handlers;
 
+	/**
+	 * Creates a new Wences instance.
+	 *
+	 * @param {string} tagName The element's tag name. Defaults to 'div'.
+	 * @param {Object} config The configuration object. See the README for more information.
+	 */
 	constructor(tagName = 'div', config = {}) {
 		this.#validateTag(tagName);
 		this.#element = document.createElement(tagName);
@@ -25,6 +34,12 @@ class Wences {
 		this.#applyConfig(config);
 	}
 
+	/**
+	 * Validates the tag name.
+	 *
+	 * @param {string} tagName The tag name to validate.
+	 * @throws {Error} If the tag name is invalid.
+	 */
 	#validateTag(tagName) {
 		try {
 			document.createElement(tagName);
@@ -34,6 +49,12 @@ class Wences {
 		}
 	}
 
+	/**
+	 * Applies the configuration to the element.
+	 *
+	 * @param {Object} config The configuration object.
+	 * @returns {Wences} The current Wences instance.
+	 */
 	#applyConfig(config) {
 		Object.entries(this.#handlers).forEach(([key, handler]) => {
 			if (config[key]) {
@@ -42,6 +63,11 @@ class Wences {
 		});
 	}
 
+	/**
+	 * Returns the element.
+	 *
+	 * @returns {HTMLElement} The element.
+	 */
 	getElement() {
 		return this.#element;
 	}
