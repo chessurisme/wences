@@ -20,8 +20,7 @@ export default {
 		{
 			file: 'dist/index.min.js',
 			format: 'iife',
-			name: 'WencesComponent',
-			plugins: [terser()]
+			name: 'Wences'
 		}
 	],
 	plugins: [
