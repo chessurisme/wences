@@ -2,7 +2,8 @@
   "name": "wences",
   "description": "Wences is a lightweight, modular JavaScript utility for creating and managing HTML elements with a clean, declarative API. It provides a structured way to handle HTML attributes, accessibility, events, and content management through a simple configuration object.",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write .",
