@@ -9,7 +9,7 @@ assets/
 rollup.config.mjs
 eslint.config.mjs
 .prettierrc
-stas.html
+stats.html
 
 # Ignore logs and temporary files
 *.log
