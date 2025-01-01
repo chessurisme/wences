@@ -107,6 +107,21 @@ describe('Wences', () => {
 			expect(element.getAttribute('role')).toBe('button');
 			expect(element.getAttribute('aria-label')).toBe('test-label');
 		});
+
+		it('should apply contents to the element', () => {
+			const config = {
+				contents: {
+					children: [document.createElement('span'), document.createElement('p')]
+				}
+			};
+
+			const wences = new Wences('div', config);
+			const element = wences.getElement();
+
+			expect(element.children.length).toBe(2);
+			expect(element.children[0].tagName.toLowerCase()).toBe('span');
+			expect(element.children[1].tagName.toLowerCase()).toBe('p');
+		});
 	});
 
 	describe('Edge Cases', () => {

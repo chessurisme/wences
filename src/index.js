@@ -89,7 +89,7 @@ class Wences {
 				}
 				// For contents (if implemented)
 				else if (handlerType === 'contents') {
-					handler.apply(handlerConfig);
+					handler.apply({ contents: handlerConfig });
 				}
 			}
 		});
