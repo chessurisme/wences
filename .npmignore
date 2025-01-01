@@ -1,4 +1,3 @@
-# Ignore npm package directories and documentation
 node_modules/
 dist/
 coverage/
@@ -6,18 +5,13 @@ public/
 assets/
 .github/
 
-# Ignore config and build files
 rollup.config.mjs
 eslint.config.mjs
 .prettierrc
 stats.html
 
-# Ignore logs and temporary files
 *.log
 *.tmp
+.DS_Store 
 
-# Ignore test files
 *.test.js
-
-# Ignore git files
-.gitignore
