@@ -35,31 +35,31 @@ import Wences from 'wences';
 
 // Create a button with various configurations
 const button = new Wences('button', {
-    accessibility: {
-        label: 'Submit form',        // Becomes aria-label
-        role: 'button',              // Stays as role
-        describedBy: 'description'   // Becomes aria-describedby
-    },
-    general: {
-        class: 'primary-button',
-        id: 'submit-btn'
-    },
-    style: {
-        backgroundColor: 'blue',
-        color: 'white'
-    },
-    events: {
-        click: () => console.log('Button clicked'),
-        mouseenter: () => console.log('Mouse entered')
-    },
-    state: {
-        disabled: false
-    },
-    contents: {
-        children: [
-            document.createElement('span')  // Must be HTML elements
-        ]
-    }
+	accessibility: {
+		label: 'Submit form', // Becomes aria-label
+		role: 'button', // Stays as role
+		describedBy: 'description' // Becomes aria-describedby
+	},
+	general: {
+		class: 'primary-button',
+		id: 'submit-btn'
+	},
+	style: {
+		backgroundColor: 'blue',
+		color: 'white'
+	},
+	events: {
+		click: () => console.log('Button clicked'),
+		mouseenter: () => console.log('Mouse entered')
+	},
+	state: {
+		disabled: false
+	},
+	contents: {
+		children: [
+			document.createElement('span') // Must be HTML elements
+		]
+	}
 });
 
 // Append to a parent element
@@ -147,12 +147,9 @@ Add child elements:
 
 ```javascript
 {
-    contents: {
-        children: [
-            document.createElement('div'),
-            document.createElement('span')
-        ]
-    }
+	contents: {
+		children: [document.createElement('div'), document.createElement('span')];
+	}
 }
 ```
 
