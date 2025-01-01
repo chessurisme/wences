@@ -1,5 +1,5 @@
 name: Report Bug
-description: Help us improving by reporting a bug
+description: Help us improving by reporting a bug you found in Wences.
 labels: ['🐛 bug']
 body:
   - type: textarea
