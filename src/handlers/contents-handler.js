@@ -1,6 +1,7 @@
 /**
  * Handles appending content elements to an HTML element.
  * Supports `HTMLElement`, `SVGElement`, and `Text` nodes as valid children.
+ * @class ContentsHandler
  */
 class ContentsHandler {
 	#element;
