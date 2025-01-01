@@ -4,6 +4,7 @@ dist/
 coverage/
 public/
 assets/
+.github/
 
 # Ignore config and build files
 rollup.config.mjs
