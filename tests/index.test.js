@@ -109,9 +109,15 @@ describe('Wences', () => {
 		});
 
 		it('should apply contents to the element', () => {
+			const span = document.createElement('span');
+			span.textContent = 'Hello World!';
+
+			const text = document.createElement('p');
+			text.textContent = 'Hi!';
+
 			const config = {
 				contents: {
-					children: [document.createElement('span'), document.createElement('p')]
+					children: [span, text]
 				}
 			};
 
@@ -120,7 +126,9 @@ describe('Wences', () => {
 
 			expect(element.children.length).toBe(2);
 			expect(element.children[0].tagName.toLowerCase()).toBe('span');
+			expect(element.children[0].textContent).toBe('Hello World!');
 			expect(element.children[1].tagName.toLowerCase()).toBe('p');
+			expect(element.children[1].textContent).toBe('Hi!');
 		});
 	});
 
