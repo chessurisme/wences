@@ -1,0 +1,22 @@
+# Ignore npm package directories and documentation
+node_modules/
+dist/
+coverage/
+public/
+assets/
+
+# Ignore config and build files
+rollup.config.mjs
+eslint.config.mjs
+.prettierrc
+stas.html
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore test files
+*.test.js
+
+# Ignore git files
+.gitignore
