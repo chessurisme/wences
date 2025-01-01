@@ -7,6 +7,7 @@ import StyleHandler from './handlers/style-handler';
 
 /**
  * Wences is a lightweight library for creating and managing HTML elements.
+ * @class Wences
  */
 class Wences {
 	#element;
@@ -56,11 +57,44 @@ class Wences {
 	 * @returns {Wences} The current Wences instance.
 	 */
 	#applyConfig(config) {
-		Object.entries(this.#handlers).forEach(([key, handler]) => {
-			if (config[key]) {
-				handler.apply(config[key]);
+		// Process each handler type
+		Object.entries(config).forEach(([handlerType, handlerConfig]) => {
+			const handler = this.#handlers[handlerType];
+			if (handler) {
+				// For style configurations
+				if (handlerType === 'style') {
+					handler.apply(handlerConfig);
+				}
+				// For general attributes
+				else if (handlerType === 'general') {
+					Object.entries(handlerConfig).forEach(([key, value]) => {
+						handler.apply({ [key]: value });
+					});
+				}
+				// For state attributes
+				else if (handlerType === 'state') {
+					Object.entries(handlerConfig).forEach(([key, value]) => {
+						handler.apply({ [key]: value });
+					});
+				}
+				// For events
+				else if (handlerType === 'events') {
+					handler.apply({ events: handlerConfig });
+				}
+				// For accessibility attributes
+				else if (handlerType === 'accessibility') {
+					Object.entries(handlerConfig).forEach(([key, value]) => {
+						handler.apply({ [key]: value });
+					});
+				}
+				// For contents (if implemented)
+				else if (handlerType === 'contents') {
+					handler.apply(handlerConfig);
+				}
 			}
 		});
+
+		return this;
 	}
 
 	/**
