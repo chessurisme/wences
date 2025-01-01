@@ -21,6 +21,7 @@
 		"declarative API",
 		"elegant",
 		"configurable",
+		"component",
 		"component library",
 		"component creation",
 		"component management"
@@ -46,5 +47,9 @@
 		"rollup": "^4.29.1",
 		"rollup-plugin-serve": "^1.1.1",
 		"rollup-plugin-visualizer": "^5.13.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/chessurisme/wences.git"
 	}
 }
