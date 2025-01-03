@@ -11,7 +11,7 @@
 		"build": "rollup -c",
 		"prepack": "npmignore --auto"
 	},
-	"types": "src/types/index.ts",
+	"types": "types/index.ts",
 	"keywords": [
 		"Vanilla JavaScript",
 		"Wences",
