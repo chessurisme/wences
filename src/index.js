@@ -175,6 +175,35 @@ class Wences {
 		this.#applyConfig(newConfig);
 		return this;
 	}
+
+	/**
+	 * Creates a clone of the current Wences instance.
+	 *
+	 * @param {boolean} deep Whether to clone child elements as well
+	 * @returns {Wences} A new Wences instance with the same configuration
+	 */
+	clone(deep = false) {
+		const config = {};
+
+		// Gather current configuration from handlers
+		Object.entries(this.#handlers).forEach(([type, handler]) => {
+			if (typeof handler.getConfig === 'function') {
+				config[type] = handler.getConfig();
+			}
+		});
+
+		const clone = new Wences(this.#element.tagName.toLowerCase(), config);
+
+		if (deep) {
+			this.#children.forEach((child) => {
+				const childClone = child.clone(true);
+				clone.#element.appendChild(childClone.getElement());
+				clone.#children.add(childClone);
+			});
+		}
+
+		return clone;
+	}
 }
 
 export default Wences;
