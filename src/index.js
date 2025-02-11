@@ -105,6 +105,21 @@ class Wences {
 	getElement() {
 		return this.#element;
 	}
+
+	/**
+	 * Appends the element to a parent element.
+	 *
+	 * @param {Element|string} parent The parent element or CSS selector.
+	 * @returns {Wences} The current Wences instance for chaining.
+	 */
+	appendTo(parent) {
+		if (typeof parent === 'string') {
+			parent = document.querySelector(parent);
+		}
+
+		parent.appendChild(this.#element);
+		return this;
+	}
 }
 
 export default Wences;
