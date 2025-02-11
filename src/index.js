@@ -142,6 +142,30 @@ class Wences {
 	}
 
 	/**
+	 * Removes the element and cleans up all event listeners and references.
+	 */
+	destroy() {
+		// Clean up all children first
+		this.#children.forEach((child) => child.destroy());
+		this.#children.clear();
+
+		// Clean up event listeners
+		this.#handlers.events.removeAll();
+
+		// Remove element from DOM
+		if (this.#element.parentNode) {
+			this.#element.parentNode.removeChild(this.#element);
+		}
+
+		// Clean up handlers
+		Object.values(this.#handlers).forEach((handler) => {
+			if (typeof handler.destroy === 'function') {
+				handler.destroy();
+			}
+		});
+	}
+
+	/**
 	 * Updates the configuration of the element.
 	 *
 	 * @param {Object} newConfig The new configuration object
