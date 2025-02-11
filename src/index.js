@@ -117,6 +117,10 @@ class Wences {
 			parent = document.querySelector(parent);
 		}
 
+		if (!parent) {
+			throw new Error('Parent element not found');
+		}
+
 		parent.appendChild(this.#element);
 		return this;
 	}
