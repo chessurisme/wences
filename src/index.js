@@ -204,6 +204,21 @@ class Wences {
 
 		return clone;
 	}
+
+	/**
+	 * Gets the current configuration of the element.
+	 *
+	 * @returns {Object} The current configuration object
+	 */
+	getConfig() {
+		const config = {};
+		Object.entries(this.#handlers).forEach(([type, handler]) => {
+			if (typeof handler.getConfig === 'function') {
+				config[type] = handler.getConfig();
+			}
+		});
+		return config;
+	}
 }
 
 export default Wences;
