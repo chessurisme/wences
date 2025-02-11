@@ -120,6 +120,17 @@ class Wences {
 		parent.appendChild(this.#element);
 		return this;
 	}
+
+	/**
+	 * Updates the configuration of the element.
+	 *
+	 * @param {Object} newConfig The new configuration object
+	 * @returns {Wences} The current Wences instance
+	 */
+	update(newConfig) {
+		this.#applyConfig(newConfig);
+		return this;
+	}
 }
 
 export default Wences;
