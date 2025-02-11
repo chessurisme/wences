@@ -12,6 +12,7 @@ import StyleHandler from './handlers/style-handler';
 class Wences {
 	#element;
 	#handlers;
+	#children;
 
 	/**
 	 * Creates a new Wences instance.
@@ -22,6 +23,7 @@ class Wences {
 	constructor(tagName = 'div', config = {}) {
 		this.#validateTag(tagName);
 		this.#element = document.createElement(tagName);
+		this.#children = new Set();
 
 		this.#handlers = {
 			accessibility: new AccessibilityHandler(this.#element),
@@ -123,6 +125,20 @@ class Wences {
 
 		parent.appendChild(this.#element);
 		return this;
+	}
+
+	/**
+	 * Creates and appends a child Wences element.
+	 *
+	 * @param {string} tagName The child element's tag name
+	 * @param {Object} config Configuration for the child element
+	 * @returns {Wences} The newly created child Wences instance
+	 */
+	appendChild(tagName, config = {}) {
+		const child = new Wences(tagName, config);
+		this.#element.appendChild(child.getElement());
+		this.#children.add(child);
+		return child;
 	}
 
 	/**
