@@ -1,59 +1,49 @@
 {
-	"name": "wences",
-	"description": "Wences is a lightweight, modular JavaScript utility for creating and managing HTML elements with a clean, declarative API. It provides a structured way to handle HTML attributes, accessibility, events, and content management through a simple configuration object.",
-	"version": "1.1.1",
-	"main": "lib/index.js",
-	"module": "lib/index.esm.js",
-	"scripts": {
-		"test": "jest",
-		"format": "prettier --write .",
-		"lint": "eslint . --fix",
-		"build": "rollup -c",
-		"prepack": "npmignore --auto"
-	},
-	"types": "types/index.ts",
-	"keywords": [
-		"Vanilla JavaScript",
-		"Wences",
-		"utility",
-		"DOM creation",
-		"HTML management",
-		"declarative API",
-		"elegant",
-		"configurable",
-		"component",
-		"component library",
-		"component creation",
-		"component management"
-	],
-	"author": "Chessurisme",
-	"license": "MIT",
-	"devDependencies": {
-		"@babel/core": "^7.26.0",
-		"@babel/preset-env": "^7.26.0",
-		"@eslint/js": "^9.17.0",
-		"@rollup/plugin-babel": "^6.0.4",
-		"@rollup/plugin-commonjs": "^28.0.2",
-		"@rollup/plugin-node-resolve": "^16.0.0",
-		"@rollup/plugin-terser": "^0.4.4",
-		"babel-jest": "^29.7.0",
-		"eslint": "^9.17.0",
-		"globals": "^15.14.0",
-		"jest": "^29.7.0",
-		"jest-environment-jsdom": "^29.7.0",
-		"prettier": "3.4.2",
-		"rollup": "^4.29.1",
-		"rollup-plugin-serve": "^1.1.1",
-		"rollup-plugin-visualizer": "^5.13.1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/chessurisme/wences.git"
-	},
-	"files": [
-		"lib",
-		"types",
-		"README.md",
-		"LICENSE.md"
-	]
+  "name": "wences",
+  "description": "Wences is a lightweight, modular JavaScript utility for creating and managing HTML elements with a clean, declarative API. It provides a structured way to handle HTML attributes, accessibility, events, and content management through a simple configuration object.",
+  "version": "1.1.1",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "scripts": {
+    "test": "jest",
+    "format": "prettier --write .",
+    "lint": "eslint . --fix",
+    "build": "rollup -c",
+    "prepack": "npmignore --auto"
+  },
+  "types": "types/index.ts",
+  "keywords": [
+    "Vanilla JavaScript",
+    "Wences",
+    "utility",
+    "DOM creation",
+    "HTML management",
+    "declarative API",
+    "elegant",
+    "configurable",
+    "component",
+    "component library",
+    "component creation",
+    "component management"
+  ],
+  "author": "Chessurisme",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "3.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chessurisme/wences.git"
+  },
+  "files": [
+    "lib",
+    "types",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "type": "module",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
 }
