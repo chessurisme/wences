@@ -45,32 +45,32 @@ import Wences from 'wences';
 
 // Create a button with various configurations
 const button = new Wences('button', {
-    accessibility: {
-        label: 'Submit form',
-        role: 'button',
-        describedBy: 'description'
-    },
-    general: {
-        class: 'primary-button',
-        id: 'submit-btn'
-    },
-    style: {
-        backgroundColor: 'blue',
-        color: 'white'
-    },
-    events: {
-        click: () => console.log('Button clicked'),
-        mouseenter: () => console.log('Mouse entered')
-    },
-    state: {
-        disabled: true,
-        hidden: false
-    }
+	accessibility: {
+		label: 'Submit form',
+		role: 'button',
+		describedBy: 'description'
+	},
+	general: {
+		class: 'primary-button',
+		id: 'submit-btn'
+	},
+	style: {
+		backgroundColor: 'blue',
+		color: 'white'
+	},
+	events: {
+		click: () => console.log('Button clicked'),
+		mouseenter: () => console.log('Mouse entered')
+	},
+	state: {
+		disabled: true,
+		hidden: false
+	}
 });
 
 // Create and append child elements
 const icon = button.appendChild('span', {
-    general: { class: 'icon' }
+	general: { class: 'icon' }
 });
 
 // Append to a parent element
@@ -88,7 +88,7 @@ Handle accessibility attributes without requiring the 'aria-' prefix:
     accessibility: {
         // Standard role attribute (remains unchanged)
         role: 'button',
-        
+
         // Aria attributes (automatically prefixed with 'aria-')
         label: 'Submit button',      // becomes aria-label
         describedBy: 'description',  // becomes aria-describedby
@@ -105,15 +105,10 @@ Manage child elements and content nodes:
 
 ```javascript
 {
-    contents: {
-        // Array of valid DOM nodes
-        children: [
-            document.createElement('div'),
-            document.createTextNode('Hello'),
-            document.createElement('svg'),
-            new Text('World')
-        ]
-    }
+	contents: {
+		// Array of valid DOM nodes
+		children: [document.createElement('div'), document.createTextNode('Hello'), document.createElement('svg'), new Text('World')];
+	}
 }
 ```
 
@@ -127,10 +122,10 @@ Handle DOM event listeners with automatic cleanup:
         // Standard DOM events
         click: (e) => console.log('Clicked'),
         mouseenter: (e) => console.log('Mouse entered'),
-        
+
         // Events with 'on' prefix (automatically normalized)
         onChange: (e) => console.log('Changed'),
-        
+
         // Custom events
         'custom-event': (e) => console.log('Custom event fired')
     }
@@ -148,11 +143,11 @@ Manage standard HTML attributes:
         id: 'my-element',
         class: 'button primary',
         name: 'submit-button',
-        
+
         // Data attributes
         'data-test': 'value',
         'data-user-id': '123',
-        
+
         // Custom attributes
         title: 'My Button',
         lang: 'en'
@@ -189,12 +184,12 @@ Manage inline styles with support for camelCase and kebab-case:
         backgroundColor: '#fff',
         fontSize: '16px',
         marginTop: '10px',
-        
+
         // Kebab-case properties
         'background-color': '#fff',
         'font-size': '16px',
         'margin-top': '10px',
-        
+
         // Transforms and animations
         transform: 'translateX(10px)',
         transition: 'all 0.3s ease'
@@ -226,7 +221,7 @@ Creates and appends a child Wences element.
 
 ```javascript
 const child = wencesInstance.appendChild('div', {
-    style: { color: 'red' }
+	style: { color: 'red' }
 });
 ```
 
@@ -252,8 +247,8 @@ Updates the configuration of the element.
 
 ```javascript
 wencesInstance.update({
-    style: { color: 'blue' },
-    state: { disabled: true }
+	style: { color: 'blue' },
+	state: { disabled: true }
 });
 ```
 
@@ -279,25 +274,25 @@ For TypeScript users:
 
 ```typescript
 interface WencesConfig {
-    accessibility?: {
-        [key: string]: string;
-        role?: string;
-    };
-    contents?: {
-        children: (HTMLElement | SVGElement | Text)[];
-    };
-    events?: {
-        [key: string]: (event: Event) => void;
-    };
-    general?: {
-        [key: string]: string;
-    };
-    state?: {
-        [key: string]: boolean;
-    };
-    style?: {
-        [key: string]: string;
-    };
+	accessibility?: {
+		[key: string]: string;
+		role?: string;
+	};
+	contents?: {
+		children: (HTMLElement | SVGElement | Text)[];
+	};
+	events?: {
+		[key: string]: (event: Event) => void;
+	};
+	general?: {
+		[key: string]: string;
+	};
+	state?: {
+		[key: string]: boolean;
+	};
+	style?: {
+		[key: string]: string;
+	};
 }
 ```
 

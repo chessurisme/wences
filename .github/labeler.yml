@@ -1,20 +1,20 @@
 # For changes in dependencies
 '📦 dependencies':
-  - changed-files:
-      - 'package.json'
+    - changed-files:
+          - 'package.json'
 
 # For changes in documentation
 '📖 documentation':
-  - changed-files:
-      - 'README.md'
+    - changed-files:
+          - 'README.md'
 
 # For changes in source code
 '✨ enhancement':
-  - changed-files:
-      - 'src/*'
-      - 'lib/*'
+    - changed-files:
+          - 'src/*'
+          - 'lib/*'
 
 # For changes in site
 '🌍 site':
-  - changed-files:
-      - 'public/*'
+    - changed-files:
+          - 'public/*'
